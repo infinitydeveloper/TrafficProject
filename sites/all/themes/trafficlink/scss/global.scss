@@ -131,13 +131,13 @@ body {
 
 .legenda  {
 	&.back_green {
-	  background-color: $back_red!important;
+	  background-color: $back_green!important;
 	}
 	&.back_orange {
 		background-color: $back_orange!important;
 	}
 	&.back_red {
-		background-color: $back_green!important;
+		background-color: $back_red!important;
 	}
 }
 

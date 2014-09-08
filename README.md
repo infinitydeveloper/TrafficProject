@@ -18,16 +18,18 @@ mysql -u username -p -e "create database trafficlink_d7;"
 3. Import the database:
 *You can import the database in PhpMyAdmin or through the commandline:*
 mysql -u username -p trafficlink_d7 < trafficlink_d7.sql
-4. Setup Cron
+4. Copy sites/default/default.settings.php to sites/default/settings.php
+5. Edit sites/default/settings.php and give the mysql username, password and database-name
+6. Setup Cron
 *If you want to update the nodes with drush cron each (x) minutes, add a cronjob to your server in crontab -e*
 *Drush cron will import data from GeoJSON and will update coordinates, velocity and speed for example*
-5. Setup Solr
+7. Setup Solr
 - Edit sites/all/modules/apachesolr/solr-conf/solr-4.x line 1113 the port of your Solr Configuration
 - Create a core in Solr
 - Copy the folder sites/all/modules/apachesolr/solr-conf/solr-4.x to your Solr Configuration
 - Go to /admin/config/search/apachesolr/settings/solr/edit
 - Enter your Solr server URL and core ( for example:  http://127.0.0.1:8099/solr/core0  )
-6. Login Credentials
+8. Login Credentials
 After setting your vhost/dns, visit the website. 
 To Login go to http://*domain.com*/user credentials are user: infinity and password: trafficlink
 After logging in you will get more options like a JSON feed or to Update nodes manually 

@@ -1,0 +1,20 @@
+/* Fonts */
+@font-face {
+    font-family: Freight;
+    src: url(/sites/all/themes/trafficlink/fonts/FreigSanProMed.otf);
+    font-weight:400;
+}
+
+/* Standards */
+$white	: #fff;
+$dark		: #061d4a;
+$gray 	: #e8e8e8;
+$orange	: #f17005;
+$font		: Freight;
+$margins : 20px;
+$padding:	20px 40px;
+
+/* Backgrounds in table */
+$back_green : #B9FF5F;
+$back_orange : #FFB659;
+$back_red : #FF4F4F;

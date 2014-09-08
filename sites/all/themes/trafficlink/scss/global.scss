@@ -1,0 +1,159 @@
+@import 'variables';
+/* This file will hold styles for the mobile version of your website (mobile first). */
+/* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
+
+/* Globals */
+body {
+  background-color: $gray;
+	font-family: $font;
+}
+
+/* Branding */
+.zone-branding {
+	background-color: $white;
+	padding: $padding;
+}
+
+/* Menu */
+.zone-menu {
+	background-color: $white;
+	padding: $padding;
+	
+	ul li a {
+		font-size: 17px;
+		font-weight: normal;
+		letter-spacing: 0.5px;
+		text-transform: lowercase;
+		text-decoration: none;
+		color: $dark;
+		padding: 8px 10px;
+		
+		&:hover {
+			text-decoration: underline;
+		}
+		&.active {
+			color: $orange;
+		}
+	}
+}
+
+/* Header */
+.zone-header {
+	background-color: $white;
+	padding: $padding;
+}
+
+/* Menu */
+.zone-menu {
+	.region-menu-inner {
+		border-bottom: 1px solid #e8e8e8;
+		padding-bottom: 30px;
+	}
+}
+
+/* Content */
+.zone-content {
+	background-color: $white;
+	padding-bottom: 40px;
+	padding: $padding;
+	h1,
+	h2,
+	h1.a,
+	h2.a,
+	.node-title a {
+		font-size: 1.5em;
+		color: $dark;
+		letter-spacing: 0.5px;
+		font-style: normal;
+		font-weight: 400;
+		font-family: $font;
+		text-decoration: none;
+	}
+	.field-label {
+		width: 75px;
+	}
+	.page-node .field-items {
+		font-size: 1.2em;
+	}
+  .node-article img {                                                                                                          
+  	width: 100%;
+    height: auto;
+  }
+	.openlayers-container {
+		margin: 30px 0;
+	}
+
+/* Table */
+.view-routes {
+		th,
+		table.sticky-header {
+			background-color: $orange;
+			font-size: 18px;
+			text-transform: lowercase;
+			a {
+				color: $white;
+			}
+		}
+		tr.even td {
+			background: $gray;
+		}
+		a { 
+			color: $orange;
+			text-decoration: none;
+			font-weight: bold;
+		}
+	}
+}
+
+.views-field-field-snelheid {
+	&.back_green {
+	  background-color: $back_green!important;
+	}
+	&.back_orange {
+		background-color: $back_orange!important;
+	}
+	&.back_red {
+		background-color: $back_red!important;
+	}
+}
+
+.views-field-field-reistijd {
+	&.back_green {
+	  background-color: $back_red!important;
+	}
+	&.back_orange {
+		background-color: $back_orange!important;
+	}
+	&.back_red {
+		background-color: $back_green!important;
+	}
+}
+
+.legenda  {
+	&.back_green {
+	  background-color: $back_red!important;
+	}
+	&.back_orange {
+		background-color: $back_orange!important;
+	}
+	&.back_red {
+		background-color: $back_green!important;
+	}
+}
+
+/* Table Legenda */
+.timelegenda {
+  width: 175px;
+	font-size: 9px;
+}
+/* Footer */
+.zone-footer {
+	background-color: $white;
+	padding: $padding;
+
+	.region-footer-first-inner {
+		border-top: 1px solid $gray;
+		padding-top: 10px;
+	}
+
+}

@@ -1,0 +1,41 @@
+***************
+*** 62,68 ****
+              $variables['{' . $mappings[$source] . '}'] = $parsed;
+            }
+            else {
+-             $variables['{' . $mappings[$source] . '}'] = '';
+            }
+            $parsed_item[$source] = $parsed;
+          }
+--- 62,76 ----
+              $variables['{' . $mappings[$source] . '}'] = $parsed;
+            }
+            else {
++             // If indicated in settings, return the array as a JSON string.
++             if ($source_config['string_return'][$source] != '0') {
++               $parsed = json_encode($parsed);
++               // Variable substitution CAN handle strings... even big ones.
++               $variables['{' . $mappings[$source] . '}'] = $parsed;
++             }
++             else {
++               $variables['{' . $mappings[$source] . '}'] = '';
++             }
+            }
+            $parsed_item[$source] = $parsed;
+          }
+***************
+*** 277,282 ****
+        'sources' => array(),
+        'debug' => array(),
+        'allow_override' => FALSE,
+      );
+    }
+  
+--- 292,298 ----
+        'sources' => array(),
+        'debug' => array(),
+        'allow_override' => FALSE,
++       'string_return' => array(),
+      );
+    }
+  

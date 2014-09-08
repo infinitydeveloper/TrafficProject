@@ -1,0 +1,43 @@
+diff --git a/FeedsJSONPathParser.inc b/FeedsJSONPathParser.inc
+index e72629c..02f6cde 100644
+--- a/FeedsJSONPathParser.inc
++++ b/FeedsJSONPathParser.inc
+@@ -62,7 +62,15 @@ class FeedsJSONPathParser extends FeedsParser {
+             $variables['{' . $mappings[$source] . '}'] = $parsed;
+           }
+           else {
+-            $variables['{' . $mappings[$source] . '}'] = '';
++            // If indicated in settings, return the array as a JSON string.
++            if ($source_config['string_return'][$source] != '0') {
++              $parsed = json_encode($parsed);
++              // Variable substitution CAN handle strings... even big ones.
++              $variables['{' . $mappings[$source] . '}'] = $parsed;
++            }
++            else {
++              $variables['{' . $mappings[$source] . '}'] = '';
++            }
+           }
+           $parsed_item[$source] = $parsed;
+         }
+@@ -236,6 +244,13 @@ class FeedsJSONPathParser extends FeedsParser {
+       '#options' => array_merge(array('context' => 'context'), $mappings),
+       '#default_value' => isset($source_config['debug']['options']) ? $source_config['debug']['options'] : array(),
+     );
++    $form['jsonpath']['string_return'] = array(
++      '#type' => 'checkboxes',
++      '#title' => t('Return arrays as strings'),
++      '#description' => t('If the given JSONPath expression points to an array, return it as a JSON string.'),
++      '#options' => $mappings,
++      '#default_value' => isset($source_config['string_return']) ? $source_config['string_return'] : array(),
++    );
+     return $form;
+   }
+ 
+@@ -296,6 +311,7 @@ class FeedsJSONPathParser extends FeedsParser {
+       'sources' => array(),
+       'debug' => array(),
+       'allow_override' => FALSE,
++      'string_return' => array(),
+     );
+   }
+ 

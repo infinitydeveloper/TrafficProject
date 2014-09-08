@@ -1,0 +1,20 @@
+diff --git a/openlayers.module b/openlayers.module
+index 9c2a07d..556225f 100644
+--- a/openlayers.module
++++ b/openlayers.module
+@@ -133,10 +133,11 @@ function openlayers_include() {
+       else {
+         drupal_add_js($path);
+       }
+-      if ($lang != 'en') {
+-        drupal_add_js(libraries_get_path('openlayers') . '/lib/OpenLayers/Lang.js', 'file');
+-        drupal_add_js(libraries_get_path('openlayers') . '/lib/OpenLayers/Lang/' . $lang . '.js', 'file');
+-      }
++      // TEMPORARY PATCH: below lang.js calls commented out because they don't work when lib is external 
++      // if ($lang != 'en') {
++      //   drupal_add_js(libraries_get_path('openlayers') . '/lib/OpenLayers/Lang.js', 'file');
++      //   drupal_add_js(libraries_get_path('openlayers') . '/lib/OpenLayers/Lang/' . $lang . '.js', 'file');
++      // }
+ 
+       drupal_add_css(drupal_get_path('module', 'openlayers') .
+         '/css/openlayers.css', 'file');
